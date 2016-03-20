@@ -31,7 +31,7 @@ public class MyAdapter extends android.support.v7.widget.RecyclerView.Adapter<My
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String myColor = (position % 2 == 0) ? "#aaaaaa" : "#ffffff";
+        String myColor = ((position + 1) % 2 == 0) ? "#aaaaaa" : "#ffffff"; //position + 1 = starting from 1, not from 0
         holder.itemLayoutView.setBackgroundColor(Color.parseColor(myColor));
         TextView mTextView = (TextView) holder.itemLayoutView.findViewById(R.id.text);
         mTextView.setText(getContent(position));
