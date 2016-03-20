@@ -14,23 +14,24 @@ import org.w3c.dom.Text;
 public class MyAdapter extends android.support.v7.widget.RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextView;
-        public ViewHolder(TextView v) {
+        public View itemLayoutView;
+        public ViewHolder(View v) {
             super(v);
-            mTextView = v;
+            this.itemLayoutView = v;
         }
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
+        View itemLayoutView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.my_list_item, parent, false);
-        return new ViewHolder((TextView)v);
+        return new ViewHolder(itemLayoutView);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(getContent(position));
+        TextView mTextView = (TextView) holder.itemLayoutView.findViewById(R.id.text);
+        mTextView.setText(getContent(position));
     }
 
     @Override
