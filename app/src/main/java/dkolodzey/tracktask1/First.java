@@ -15,13 +15,11 @@ public class First extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        try {
-            Thread.sleep(2000);
-            Intent intent = new Intent(this, Second.class);
-            startActivity(intent);
-        } catch (Exception e) {
-            //Ignore
-        }
+        new AsyncSecondCaller().execute(this);
+    }
 
+    public void callSecond() {
+        Intent intent = new Intent(this, Second.class);
+        startActivity(intent);
     }
 }
