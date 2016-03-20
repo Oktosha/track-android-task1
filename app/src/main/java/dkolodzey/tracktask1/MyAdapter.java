@@ -39,7 +39,7 @@ public class MyAdapter extends android.support.v7.widget.RecyclerView.Adapter<My
     }
 
     private String getContent(Integer position) {
-        return position.toString();
+        return position.toString() + " элемент списка";
     }
 
 }
