@@ -1,5 +1,6 @@
 package dkolodzey.tracktask1;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,8 @@ public class MyAdapter extends android.support.v7.widget.RecyclerView.Adapter<My
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        String myColor = (position % 2 == 0) ? "#aaaaaa" : "#ffffff";
+        holder.itemLayoutView.setBackgroundColor(Color.parseColor(myColor));
         TextView mTextView = (TextView) holder.itemLayoutView.findViewById(R.id.text);
         mTextView.setText(getContent(position));
     }
