@@ -4,7 +4,7 @@ package dkolodzey.tracktask1;
  * Created by DKolodzey on 20.03.16.
  */
 public class NumberToWordConverter {
-    public static String getNumberInWords(int x){
+    public String getNumberInWords(int x){
         if ((x < 1) || (x > 1000000)){
             throw new IllegalArgumentException("Number converted to words should be from 1 to 1000000\n"
                 + x + " found\n");
@@ -26,7 +26,7 @@ public class NumberToWordConverter {
         return ansBuilder.toString().trim();
     }
 
-    private static String getFormOf1000(int numberOf1000) {
+    private String getFormOf1000(int numberOf1000) {
         if ((numberOf1000 < 1) || (numberOf1000 > 999))
             throw new IllegalArgumentException("numberOf1000 should be from 1 to 999\n"
                     + numberOf1000 + " found\n");
@@ -40,7 +40,7 @@ public class NumberToWordConverter {
         return "тысяч";
     }
 
-    private static String getFormFor1to9(int x, boolean is_female) {
+    private String getFormFor1to9(int x, boolean is_female) {
         switch(x) {
             case 1:
                 return is_female ? "одна" : "один";
@@ -66,7 +66,7 @@ public class NumberToWordConverter {
         }
     }
 
-    private static String getFormFor10to19(int x) {
+    private String getFormFor10to19(int x) {
         switch(x) {
             case 10:
                 return "десять";
@@ -93,7 +93,7 @@ public class NumberToWordConverter {
                         + x + " found\n");
         }
     }
-    private static String getTensFrom2to9(int x) {
+    private String getTensFrom2to9(int x) {
         switch(x) {
             case 2:
                 return "двадцать";
@@ -116,7 +116,7 @@ public class NumberToWordConverter {
                         + x + " found\n");
         }
     }
-    private static String getHundredsFrom1to9(int x) {
+    private String getHundredsFrom1to9(int x) {
         switch(x) {
             case 1:
                 return "сто";
@@ -142,7 +142,7 @@ public class NumberToWordConverter {
         }
     }
 
-    private static String getNumberFrom1to999(int x, boolean is_female) {
+    private String getNumberFrom1to999(int x, boolean is_female) {
         StringBuilder ansBuilder = new StringBuilder();
         if (x / 100 > 0) {
             ansBuilder.append(getHundredsFrom1to9(x / 100));
