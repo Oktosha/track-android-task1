@@ -14,6 +14,13 @@ import org.w3c.dom.Text;
  */
 public class MyAdapter extends android.support.v7.widget.RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
+    private NumberToWordConverter converter;
+
+    public MyAdapter() {
+        super();
+        converter = new NumberToWordConverter();
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public View itemLayoutView;
         public ViewHolder(View v) {
@@ -34,16 +41,12 @@ public class MyAdapter extends android.support.v7.widget.RecyclerView.Adapter<My
         String myColor = ((position + 1) % 2 == 0) ? "#aaaaaa" : "#ffffff"; //position + 1 = starting from 1, not from 0
         holder.itemLayoutView.setBackgroundColor(Color.parseColor(myColor));
         TextView mTextView = (TextView) holder.itemLayoutView.findViewById(R.id.text);
-        mTextView.setText(getContent(position));
+        mTextView.setText(converter.getNumberInWords(position + 1));
     }
 
     @Override
     public int getItemCount() {
         return 1000000;
-    }
-
-    private String getContent(Integer position) {
-        return position.toString() + " элемент списка";
     }
 
 }
