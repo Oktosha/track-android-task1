@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 public class First extends AppCompatActivity {
 
+    private AsyncSecondCaller asyncCaller;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,11 +17,18 @@ public class First extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        new AsyncSecondCaller().execute(this);
+        asyncCaller = new AsyncSecondCaller();
+        asyncCaller.execute(this);
     }
 
     public void callSecond() {
         Intent intent = new Intent(this, Second.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        asyncCaller.cancel(true);
+        super.onBackPressed();
     }
 }
