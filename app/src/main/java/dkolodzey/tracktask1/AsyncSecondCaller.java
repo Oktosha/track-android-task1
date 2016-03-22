@@ -1,6 +1,5 @@
 package dkolodzey.tracktask1;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 
 /**
@@ -12,7 +11,7 @@ public class AsyncSecondCaller extends AsyncTask<First, Void, Void> {
         try {
             Thread.sleep(2000);
             First callingActivity = params[0];
-            callingActivity.callSecond();
+            callingActivity.callSecondAndDie();
         } catch (Exception e) {
             //Ignore
         }

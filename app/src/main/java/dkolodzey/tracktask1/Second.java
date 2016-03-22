@@ -22,9 +22,4 @@ public class Second extends AppCompatActivity {
         mAdapter = new MyAdapter();
         mRecyclerView.setAdapter(mAdapter);
     }
-
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
 }

@@ -21,9 +21,10 @@ public class First extends AppCompatActivity {
         asyncCaller.execute(this);
     }
 
-    public void callSecond() {
+    public void callSecondAndDie() {
         Intent intent = new Intent(this, Second.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
